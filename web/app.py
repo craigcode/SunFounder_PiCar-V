@@ -25,7 +25,6 @@ bw_status = 0
 def run():
 	global SPEED, bw_status
 	debug = ''
-
     print request.args.get('action')
     print request.args.get('speed')
 
