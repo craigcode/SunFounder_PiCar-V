@@ -67,12 +67,7 @@ def run(request):
 		if bw_status != 0:
 			bw.speed = SPEED
 		debug = "speed =", speed
-	
-    #host = stream.get_host().split(' ')[0]
-	
-    #return render_to_response("run.html", {'host': host})
-
-return 'OK'
+	return 'OK'
 
 
 @app.route('/')
