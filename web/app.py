@@ -29,7 +29,7 @@ def run():
     s = request.args.get('speed')
 
     print a
-    print s 
+    print s
 
 	if request.args.get('action') is not None:
 		action = request.args.get('action')
