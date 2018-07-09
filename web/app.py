@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from driver import stream
 from picar import back_wheels, front_wheels
 import picar
@@ -26,8 +26,8 @@ def run(request):
 	global SPEED, bw_status
 	debug = ''
 
-	if 'action' in request.GET:
-		action = request.GET['action']
+	if request.args.get('action') is not None:
+		action = request.args.get('action')
 		# ============== Back wheels =============
 		if action == 'bwready':
 			bw.ready()
@@ -58,8 +58,8 @@ def run(request):
 			print "turn %s" % action
 			fw.turn(int(action.split(':')[1]))
 		
-	if 'speed' in request.GET:
-		speed = int(request.GET['speed'])
+	if request.args.get('speed') is not None:
+		speed = int(request.args.get('speed'))
 		if speed < 0:
 			speed = 0
 		if speed > 100:
