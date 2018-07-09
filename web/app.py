@@ -30,9 +30,9 @@ def run():
 
     print a
     print s
-
-	if request.args.get('action') is not None:
-		action = request.args.get('action')
+    
+    if request.args.get('action') is not None:
+        action = request.args.get('action')
 		# ============== Back wheels =============
 		if action == 'bwready':
 			bw.ready()
