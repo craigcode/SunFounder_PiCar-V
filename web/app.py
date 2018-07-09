@@ -22,7 +22,7 @@ SPEED = 60
 bw_status = 0
 
 @app.route('/run')
-def run():
+def run(self):
     global SPEED, bw_status
     debug = ''
     a = request.args.get('action')
