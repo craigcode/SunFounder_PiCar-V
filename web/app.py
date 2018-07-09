@@ -25,9 +25,10 @@ bw_status = 0
 def run():
 	global SPEED, bw_status
 	debug = ''
-    print request.args('action')
-    print request.args('speed')
-    
+
+    print request.args.get('action')
+    print request.args.get('speed')
+
 	if request.args.get('action') is not None:
 		action = request.args.get('action')
 		# ============== Back wheels =============
