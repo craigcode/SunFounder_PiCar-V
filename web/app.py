@@ -24,10 +24,13 @@ bw_status = 0
 @app.route('/run')
 def run():
 	global SPEED, bw_status
-	debug = ''
-    print request.args.get('action')
-    print request.args.get('speed')
+    debug = ''
+    a = request.args.get('action')
+    s = request.args.get('speed')
 
+    print a
+    print s 
+    
 	if request.args.get('action') is not None:
 		action = request.args.get('action')
 		# ============== Back wheels =============
