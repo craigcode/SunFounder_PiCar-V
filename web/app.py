@@ -34,46 +34,46 @@ def run():
     if request.args.get('action') is not None:
         action = request.args.get('action')
 		# ============== Back wheels =============
-		if action == 'bwready':
-			bw.ready()
-			bw_status = 0
-		elif action == 'forward':
-			bw.speed = SPEED
-			bw.forward()
-			bw_status = 1
-			debug = "speed =", SPEED
-		elif action == 'backward':
-			bw.speed = SPEED
-			bw.backward()
-			bw_status = -1
-		elif action == 'stop':
-			bw.stop()
-			bw_status = 0
+        if action == 'bwready':
+            bw.ready()
+            bw_status = 0
+        elif action == 'forward':
+            bw.speed = SPEED
+            bw.forward()
+            bw_status = 1
+            debug = "speed =", SPEED
+        elif action == 'backward':
+            bw.speed = SPEED
+            bw.backward()
+            bw_status = -1
+        elif action == 'stop':
+            bw.stop()
+            bw_status = 0
 
-		# ============== Front wheels =============
-		elif action == 'fwready':
-			fw.ready()
-		elif action == 'fwleft':
-			fw.turn_left()
-		elif action == 'fwright':
-			fw.turn_right()
-		elif action == 'fwstraight':
-			fw.turn_straight()
-		elif 'fwturn' in action:
-			print "turn %s" % action
-			fw.turn(int(action.split(':')[1]))
-		
-	if request.args.get('speed') is not None:
-		speed = int(request.args.get('speed'))
-		if speed < 0:
-			speed = 0
-		if speed > 100:
-			speed = 100
-		SPEED = speed
-		if bw_status != 0:
-			bw.speed = SPEED
-		debug = "speed =", speed
-	return 'OK'
+        # ============== Front wheels =============
+        elif action == 'fwready':
+            fw.ready()
+        elif action == 'fwleft':
+            fw.turn_left()
+        elif action == 'fwright':
+            fw.turn_right()
+        elif action == 'fwstraight':
+            fw.turn_straight()
+        elif 'fwturn' in action:
+            print "turn %s" % action
+            fw.turn(int(action.split(':')[1]))
+        
+    if request.args.get('speed') is not None:
+        speed = int(request.args.get('speed'))
+        if speed < 0:
+            speed = 0
+        if speed > 100:
+            speed = 100
+        SPEED = speed
+        if bw_status != 0:
+            bw.speed = SPEED
+        debug = "speed =", speed
+    return 'OK'
 
 
 @app.route('/')
