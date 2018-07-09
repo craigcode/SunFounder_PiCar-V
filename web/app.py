@@ -1,5 +1,6 @@
 from flask import Flask
 from driver import stream
+from picar import back_wheels, front_wheels
 import picar
 
 app = Flask(__name__)
