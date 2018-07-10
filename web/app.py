@@ -49,6 +49,7 @@ def run():
             bw.forward()
             bw_status = 1
             debug = "speed =", SPEED
+            print debug
         elif action == 'backward':
             bw.speed = SPEED
             bw.backward()
