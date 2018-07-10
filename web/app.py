@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from driver import stream
 from picar import back_wheels, front_wheels
 import picar
@@ -20,6 +20,11 @@ fw.ready()
 
 SPEED = 60
 bw_status = 0
+
+@app.route('/args')
+def testargs():
+    all_args = request.args.lists()
+    return jsonify(all_args)
 
 @app.route('/run')
 def run(self):
