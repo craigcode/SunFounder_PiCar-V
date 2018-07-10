@@ -27,14 +27,14 @@ def testargs():
     return jsonify(all_args)
 
 @app.route('/run')
-def run(self):
+def run():
     global SPEED, bw_status
     debug = ''
+    all_args = request.args.lists()
     a = request.args.get('action')
     s = request.args.get('speed')
 
-    print a
-    print s
+    print jsonify(all_args)
     
     if request.args.get('action') is not None:
         action = request.args.get('action')
