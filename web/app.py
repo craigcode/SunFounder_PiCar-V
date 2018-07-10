@@ -33,6 +33,8 @@ def run():
     all_args = request.args.lists()
     a = request.args.get('action')
     s = request.args.get('speed')
+    action = ''
+    speed = 0
 
     print jsonify(all_args)
     
@@ -78,7 +80,7 @@ def run():
         if bw_status != 0:
             bw.speed = SPEED
         debug = "speed =", speed
-    return 'OK'
+    return 'OK ' + action
 
 
 @app.route('/')
